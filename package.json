@@ -1,0 +1,15 @@
+{
+  "name": "interactive-academic-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A bilingual academic portfolio with interactive research visualization",
+  "type": "module",
+  "scripts": {
+    "dev": "node preview.mjs",
+    "build": "node build.mjs",
+    "preview": "node preview.mjs --dist"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

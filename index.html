@@ -1,0 +1,1044 @@
+<!doctype html>
+<html data-page="home" lang="en" data-motion="running" data-theme="guochao"
+  ><head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="assets/startup.js?v=1"></script>
+    <meta name="theme-color" content="#f7f9f8" /><meta
+      name="description"
+      content="Wang Xin’s research portfolio. Biomedical engineering, causal inference, multi-omics and AI-assisted research."
+    />
+    <title>Wang Xin · Data &amp; Discovery</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="assets/site.css?v=1" />
+    <script src="assets/vendor/three.min.js?v=1" defer></script>
+    <script src="assets/vendor/astronomy.browser.min.js?v=1" defer></script>
+    <script src="assets/publications.js?v=1" defer></script>
+    <script src="assets/citations-data.js?v=1" defer></script>
+    <script src="assets/molecule-data.js?v=1" defer></script>
+    <script src="assets/star-catalog.js?v=1" defer></script>
+    <script src="assets/site.js?v=1" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+    <header id="site-header" class="site-header">
+      <a class="brand" href="#home" aria-label="Wang Xin, back to home" data-i18n-aria="nav.home"
+        ><span class="brand-monogram" aria-hidden="true"></span
+      ></a>
+      <nav class="desktop-nav" aria-label="Main navigation" data-i18n-aria="nav.main"
+        ><a href="#about" data-section-link="">About</a
+        ><a href="#research" data-section-link="">Research</a
+        ><a href="#journey" data-section-link="">Journey</a
+        ><a href="#publications" data-section-link="">Publications</a
+        ><a href="#art-gallery" data-section-link="">Gallery</a></nav
+      >
+      <div class="header-actions"
+        ><div
+          class="language-switch"
+          role="group"
+          aria-label="Select language"
+          data-i18n-aria="nav.language"
+          ><button type="button" data-lang-option="zh" aria-pressed="false">中文</button
+          ><span aria-hidden="true">/</span
+          ><button type="button" data-lang-option="en" aria-pressed="true" lang="en"
+            >EN</button
+          ></div
+        ><a class="header-cv cv-link" href="assets/resume.html?lang=en" data-i18n="nav.cv"
+          >Academic profile ↗</a
+        ><button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open navigation"
+          data-i18n-aria="nav.open"
+          ><span></span><span></span></button
+      ></div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-label="Mobile navigation"
+        data-i18n-aria="nav.mobile"
+        hidden=""
+        ><a href="#about" data-section-link="">About</a
+        ><a href="#research" data-section-link="">Research</a
+        ><a href="#journey" data-section-link="">Journey</a
+        ><a href="#publications" data-section-link="">Publications</a
+        ><a href="#art-gallery" data-section-link="">Gallery</a
+        ><a class="cv-link" href="assets/resume.html?lang=en" data-i18n="nav.cv"
+          >Academic profile ↗</a
+        ></nav
+      >
+      <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+    </header>
+    <main id="main">
+      <section id="home" class="hero">
+        <div class="hero-aura" aria-hidden="true"></div
+        ><canvas id="data-field-canvas" aria-hidden="true"></canvas>
+        <div class="hero-inner content-width">
+          <div class="hero-copy">
+            <p class="hero-discipline">BIOMEDICINE <span>×</span> ARTIFICIAL INTELLIGENCE</p>
+            <h1 class="hero-name"><span data-i18n="hero.name">Wang Xin</span></h1>
+            <h2 class="hero-statement" data-i18n="hero.statement"
+              >Small clues.<br />A wider view of life.</h2
+            >
+            <p class="hero-description" data-i18n="hero.description"
+              >Tracing disease through genetics and the microbiome.<br />Bringing data and AI into
+              the search.</p
+            >
+            <div class="hero-actions"
+              ><a class="button button-solid" href="#research"
+                ><span data-i18n="hero.research">Explore my research</span
+                ><span aria-hidden="true">↗</span></a
+              ><button class="text-link" id="open-dna" type="button"
+                ><span data-i18n="hero.play">Explore a DNA sequence</span
+                ><span aria-hidden="true">→</span></button
+              ></div
+            >
+          </div>
+          <figure class="hero-stage">
+            <div class="molecular-glow" aria-hidden="true"></div>
+            <canvas
+              id="hero-canvas"
+              tabindex="0"
+              aria-label="An interactive constellation of life and intelligence. Drag any form to rotate it, or drag empty space to turn the whole scene. Scroll over the artwork to zoom; pinch with two fingers on touch screens. Keys 0, 1, 2 and 3 select the helix, AI, microbes and data. Arrow keys rotate the selection, Escape selects the whole scene, and Home resets the view."
+              data-i18n-aria="hero.canvas"
+            ></canvas>
+            <div class="molecular-controls"
+              ><div class="model-title"
+                ><span class="live-dot" aria-hidden="true"></span><span>BIO × AI</span></div
+              ><div class="rotation-controls"
+                ><button
+                  type="button"
+                  id="basepairs-toggle"
+                  class="basepairs-toggle"
+                  aria-pressed="true"
+                  data-i18n="model.pairs"
+                  >Connections</button
+                ><button
+                  type="button"
+                  id="rotate-left"
+                  aria-label="Rotate structure left"
+                  data-i18n-aria="model.left"
+                  >↶</button
+                ><button
+                  type="button"
+                  id="rotate-right"
+                  aria-label="Rotate structure right"
+                  data-i18n-aria="model.right"
+                  >↷</button
+                ><button type="button" id="reset-model" data-i18n="model.reset">Reset</button></div
+              ></div
+            >
+            <div class="zoom-controls"
+              ><button
+                id="zoom-out"
+                type="button"
+                aria-label="Zoom out from the scene"
+                data-i18n-aria="model.zoomOut"
+                >−</button
+              ><label class="zoom-slider"
+                ><span class="sr-only" data-i18n="model.zoom">Zoom into the details</span
+                ><input
+                  id="helix-zoom"
+                  type="range"
+                  min="0.75"
+                  max="1.65"
+                  step="0.01"
+                  value="1"
+                  aria-label="Zoom into the details"
+                  data-i18n-aria="model.zoom" /></label
+              ><button
+                id="zoom-in"
+                type="button"
+                aria-label="Zoom in on the scene"
+                data-i18n-aria="model.zoomIn"
+                >+</button
+              ><output id="zoom-value" for="helix-zoom">100%</output></div
+            ><div class="model-bottom"
+              ><button
+                type="button"
+                id="model-info-button"
+                aria-expanded="false"
+                aria-controls="model-info"
+                data-i18n="model.info"
+                >About the constellation +</button
+              ></div
+            >
+            <div id="model-info" class="model-info" hidden=""
+              ><p data-i18n="model.description"
+                >Genetic order, language and small living worlds meet in the same light. Drag a form
+                to discover another side, or drag empty space to turn the whole constellation.
+                Scroll over the artwork to zoom, or pinch with two fingers on a touch screen.</p
+              ></div
+            >
+            <p id="molecule-readout" class="molecule-readout" role="status" aria-live="polite"></p>
+          </figure>
+          <aside class="hero-poetry" aria-label="Rotating reflections" data-i18n-aria="poem.label"
+            ><div class="poem-rule" aria-hidden="true"></div
+            ><div id="poem-lines" class="poem-lines"><p></p><p></p></div
+            ><div class="poem-pagination"
+              ><span id="poem-counter">01 / 08</span
+              ><div class="poem-buttons"
+                ><button
+                  type="button"
+                  id="poem-prev"
+                  aria-label="Previous reflection"
+                  data-i18n-aria="poem.previous"
+                  >‹</button
+                ><button
+                  type="button"
+                  id="poem-pause"
+                  aria-label="Pause reflections"
+                  data-i18n-aria="poem.pause"
+                  aria-pressed="false"
+                  >Ⅱ</button
+                ><button
+                  type="button"
+                  id="poem-next"
+                  aria-label="Next reflection"
+                  data-i18n-aria="poem.next"
+                  >›</button
+                ></div
+              ></div
+            ></aside
+          >
+        </div>
+        <a class="hero-scroll" href="#about"
+          ><span class="scroll-line" aria-hidden="true"></span
+          ><span data-i18n="hero.scroll">Keep exploring</span></a
+        >
+      </section>
+      <div class="dna-inset content-width"
+        ><details id="dna-discovery" class="embedded-discovery"
+          ><summary
+            ><span class="discovery-symbol" aria-hidden="true">⌁</span
+            ><span data-i18n="dna.discover"
+              >Read a DNA sequence. Find its complementary strand.</span
+            ><span class="discovery-action" data-i18n="dna.open">Try pairing</span
+            ><span class="details-icon" aria-hidden="true">+</span></summary
+          ><div id="pairing-game"></div></details
+      ></div>
+      <section id="about" class="about section content-width">
+        <div class="about-portrait personal-portrait"
+          ><div class="portrait-frame"
+            ><img
+              src="assets/portrait-painted.webp?v=1"
+              alt="王昕的绘画肖像"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async" /></div
+        ></div>
+        <div class="about-copy"
+          ><p class="section-eyebrow" data-i18n="about.label">About me</p
+          ><h2 class="section-title" data-i18n="about.title"
+            >Rooted in medicine.<br />Drawn to new connections.</h2
+          ><p class="about-university" data-i18n="about.university"
+            >Harbin Medical University · Doctoral studies in Biomedical Engineering</p
+          ><div
+            class="interest-options"
+            role="group"
+            aria-label="Choose a research interest"
+            data-i18n-aria="about.focusLabel"
+            ><button
+              type="button"
+              data-interest="genetics"
+              aria-pressed="true"
+              data-i18n="about.genetics"
+              >Genetics &amp; causality</button
+            ><button
+              type="button"
+              data-interest="microbes"
+              aria-pressed="false"
+              data-i18n="about.microbes"
+              >Gut microbiome</button
+            ><button type="button" data-interest="ai" aria-pressed="false" data-i18n="about.ai"
+              >AI collaboration</button
+            ></div
+          ><p id="about-focus-text" class="body-copy" aria-live="polite" data-i18n="about.text"
+            >I study the genetic basis of complex disease, using Mendelian randomization to examine
+            causal relationships and multi-omics to connect the evidence.</p
+          ><a class="text-link cv-link" href="assets/resume.html?lang=en"
+            ><span data-i18n="about.cv">Read my academic profile</span
+            ><span aria-hidden="true">↗</span></a
+          ></div
+        >
+        <div class="research-stats"
+          ><div
+            ><strong>12<span data-i18n="stats.unit"></span></strong
+            ><span data-i18n="stats.papers">Publications</span></div
+          ><div
+            ><strong>10<span data-i18n="stats.unit"></span></strong
+            ><span data-i18n="stats.cofirst">Co-first authorships</span></div
+          ><div
+            ><strong>2025</strong
+            ><span data-i18n="stats.award">National Scholarship for Master’s Students</span></div
+          ></div
+        >
+        <div class="off-duty" aria-labelledby="off-duty-title" data-curiosity="pattern">
+          <div class="off-duty-intro"
+            ><p class="section-eyebrow" data-curiosity-label="">研究之外</p
+            ><h3 id="off-duty-title" data-curiosity-title="">看花纹，<br />也看星河。</h3
+            ><p data-curiosity-intro=""
+              >偏爱东方纹样的留白与层次，也喜欢山海神话的想象，和小小交互带来的惊喜。</p
+            ></div
+          >
+          <div class="off-duty-explore"
+            ><figure class="off-duty-study" aria-hidden="true"
+              ><svg viewBox="0 0 240 240" focusable="false"></svg></figure
+            ><div class="off-duty-content"
+              ><div class="off-duty-tabs" role="tablist" aria-label="研究之外的兴趣"
+                ><button
+                  id="curiosity-pattern"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="curiosity-panel"
+                  data-curiosity-select="pattern"
+                  >纹样</button
+                ><button
+                  id="curiosity-stars"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="curiosity-panel"
+                  data-curiosity-select="stars"
+                  tabindex="-1"
+                  >星空</button
+                ><button
+                  id="curiosity-play"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="curiosity-panel"
+                  data-curiosity-select="play"
+                  tabindex="-1"
+                  >交互</button
+                ></div
+              ><div
+                id="curiosity-panel"
+                class="off-duty-panel"
+                role="tabpanel"
+                aria-labelledby="curiosity-pattern"
+                ><h4 data-curiosity-heading="">一笔一纹，慢慢看。</h4
+                ><p data-curiosity-description=""
+                  >青花、云纹与明快的色彩，都是值得细看的视觉语言。</p
+                ><button type="button" class="off-duty-action" data-curiosity-action=""
+                  >换一枚花纹 <span aria-hidden="true">↗</span></button
+                ></div
+              ></div
+            ></div
+          >
+        </div>
+      </section>
+      <div class="cloud-rule content-width" aria-hidden="true"></div>
+      <section id="research" class="research section content-width">
+        <div class="section-heading"
+          ><div
+            ><p class="section-eyebrow" data-i18n="research.label">Research &amp; tools</p
+            ><h2 class="section-title" data-i18n="research.title"
+              >Follow the evidence.<br />Ask the next question.</h2
+            ></div
+          ><div class="research-heading-aside"
+            ><p class="section-intro" data-i18n="research.intro"
+              >Genetics, microbes and AI offer<br />different perspectives on complex disease.</p
+            ><a class="research-map-jump" data-research-map-jump="" href="#research-map"
+              >Explore the research map ↘</a
+            ></div
+          ></div
+        >
+        <div class="research-grid research-bento">
+          <article class="research-item ai-item" id="ai-research"
+            ><div class="research-copy"
+              ><p class="research-tag">AI · LARGE LANGUAGE MODELS</p
+              ><h3 data-i18n="research.aiTitle">Connecting ideas with AI tools</h3
+              ><p data-i18n="research.aiText"
+                >Exploring how large language models and AI agents can help with literature review,
+                analysis workflows and scientific communication.</p
+              ></div
+            ><div class="research-visual llm-visual"
+              ><canvas
+                id="ai-canvas"
+                aria-label="Conceptual large language model pipeline showing tokens, attention and generation"
+                data-i18n-aria="research.aiCanvas"
+              ></canvas></div
+            ><div class="module-interaction llm-interaction"
+              ><div class="module-topline"
+                ><span class="interaction-label scene-copy"
+                  ><span id="llm-scene-number" class="scene-number" aria-hidden="true">01</span
+                  ><span id="llm-scene-caption" class="scene-caption"></span></span
+                ><button
+                  type="button"
+                  id="llm-play"
+                  class="inline-action"
+                  aria-pressed="true"
+                  data-i18n="flow.pause"
+                  >Pause slideshow</button
+                ></div
+              ><div
+                class="module-options llm-steps"
+                role="group"
+                aria-label="Explore language model steps"
+                data-i18n-aria="llm.steps"
+                ><button
+                  type="button"
+                  data-llm-step="tokens"
+                  aria-pressed="true"
+                  data-i18n="llm.tokens"
+                  >Tokens</button
+                ><button
+                  type="button"
+                  data-llm-step="attention"
+                  aria-pressed="false"
+                  data-i18n="llm.attention"
+                  >Attention</button
+                ><button
+                  type="button"
+                  data-llm-step="generation"
+                  aria-pressed="false"
+                  data-i18n="llm.generation"
+                  >Generation</button
+                ></div
+              ><div
+                id="token-rail"
+                class="token-rail"
+                role="group"
+                aria-label="Select an input fragment"
+                data-i18n-aria="llm.selectToken"
+              ></div
+              ><div class="flow-progress" id="llm-progress" aria-hidden="true"><span></span></div
+              ><p id="llm-readout" class="module-readout" aria-live="off"></p></div
+          ></article>
+          <article class="research-item microbiome-item" id="microbiome-research"
+            ><div class="research-copy"
+              ><p class="research-tag">GUT MICROBIOME</p
+              ><h3 data-i18n="research.microTitle">Small organisms. Far-reaching effects.</h3
+              ><p data-i18n="research.microText"
+                >Exploring gut communities, probiotics and pathogenesis, with an interest in the
+                links between microbes, metabolites and host immunity.</p
+              ></div
+            ><div id="microbiome-module"></div
+          ></article>
+          <article class="research-item causal-item" id="causal-research"
+            ><div class="research-copy"
+              ><p class="research-tag">CAUSAL INFERENCE</p
+              ><h3 data-i18n="research.causalTitle">From association to causal questions</h3
+              ><p data-i18n="research.causalText"
+                >Using genetic variants as instruments to investigate potential causal links between
+                immune or metabolic factors and complex diseases.</p
+              ></div
+            ><div class="research-visual"
+              ><canvas
+                id="causal-canvas"
+                aria-label="Causal diagram of genetic instruments, exposure and outcome"
+                data-i18n-aria="research.causalCanvas"
+              ></canvas></div
+            ><div class="module-interaction"
+              ><div class="module-topline"
+                ><span class="interaction-label scene-copy"
+                  ><span id="causal-scene-number" class="scene-number" aria-hidden="true">01</span
+                  ><span id="causal-scene-caption" class="scene-caption"></span></span
+                ><button
+                  type="button"
+                  id="causal-play"
+                  class="inline-action"
+                  aria-pressed="true"
+                  data-i18n="flow.pause"
+                  >Pause slideshow</button
+                ></div
+              ><div
+                class="module-options"
+                role="group"
+                aria-label="Select a causal diagram node"
+                data-i18n-aria="causal.select"
+                ><button
+                  type="button"
+                  data-causal="instrument"
+                  aria-pressed="true"
+                  data-i18n="causal.instrument"
+                  >Instrument</button
+                ><button
+                  type="button"
+                  data-causal="exposure"
+                  aria-pressed="false"
+                  data-i18n="causal.exposure"
+                  >Exposure</button
+                ><button
+                  type="button"
+                  data-causal="outcome"
+                  aria-pressed="false"
+                  data-i18n="causal.outcome"
+                  >Outcome</button
+                ></div
+              ><div class="flow-progress" id="causal-progress" aria-hidden="true"><span></span></div
+              ><p id="causal-readout" class="module-readout" aria-live="off"></p></div
+          ></article>
+          <article class="research-item omics-item" id="omics-research"
+            ><div class="research-copy"
+              ><p class="research-tag">MULTI-OMICS</p
+              ><h3 data-i18n="research.omicsTitle">Many layers. A shared question.</h3
+              ><p data-i18n="research.omicsText"
+                >Integrating cross-trait genetics and multi-omics evidence to explore shared disease
+                architecture and potential targets.</p
+              ></div
+            ><div class="research-visual"
+              ><canvas
+                id="omics-canvas"
+                aria-label="Animated conceptual layers of genomic, transcriptomic and proteomic data"
+                data-i18n-aria="research.omicsCanvas"
+              ></canvas></div
+            ><div class="module-interaction"
+              ><div class="module-topline"
+                ><span class="interaction-label scene-copy"
+                  ><span id="omics-scene-number" class="scene-number" aria-hidden="true">01</span
+                  ><span id="omics-scene-caption" class="scene-caption"></span></span
+                ><button
+                  type="button"
+                  id="omics-play"
+                  class="inline-action"
+                  aria-pressed="true"
+                  data-i18n="flow.pause"
+                  >Pause slideshow</button
+                ></div
+              ><div
+                class="module-options"
+                role="group"
+                aria-label="Explore the omics layers"
+                data-i18n-aria="omics.select"
+                ><button type="button" data-omics="all" aria-pressed="true" data-i18n="omics.all"
+                  >Integrate</button
+                ><button
+                  type="button"
+                  data-omics="genome"
+                  aria-pressed="false"
+                  data-i18n="omics.genome"
+                  >Genome</button
+                ><button
+                  type="button"
+                  data-omics="transcriptome"
+                  aria-pressed="false"
+                  data-i18n="omics.transcriptome"
+                  >Transcriptome</button
+                ><button
+                  type="button"
+                  data-omics="proteome"
+                  aria-pressed="false"
+                  data-i18n="omics.proteome"
+                  >Proteome</button
+                ></div
+              ><div class="flow-progress" id="omics-progress" aria-hidden="true"><span></span></div
+              ><p id="omics-readout" class="module-readout" aria-live="off"></p></div
+          ></article>
+        </div>
+        <div
+          id="research-map"
+          class="research-map"
+          role="region"
+          aria-labelledby="research-map-title"
+        ></div>
+      </section>
+      <section id="journey" class="journey section content-width">
+        <div class="section-heading"
+          ><div
+            ><p class="section-eyebrow" data-i18n="journey.label">Academic journey</p
+            ><h2 class="section-title" data-i18n="journey.title"
+              >Build. Explore. Keep going.</h2
+            ></div
+          ><p class="section-intro" data-i18n="journey.university"
+            >Harbin Medical University</p
+          ></div
+        >
+        <p class="journey-track" data-i18n="journey.integrated"
+          >2024 — Present · Integrated master’s–PhD track</p
+        >
+        <div
+          class="journey-grid"
+          role="tablist"
+          aria-label="Explore the education stages"
+          data-i18n-aria="journey.select"
+          ><button
+            class="journey-stage current-stage"
+            type="button"
+            role="tab"
+            id="stage-phd"
+            data-stage-select="phd"
+            aria-selected="true"
+            aria-controls="journey-panel"
+            ><span class="stage-date" data-i18n="journey.now">Sep 2026 — Present</span
+            ><span class="stage-heading" data-i18n="journey.currentDegree">Doctoral phase</span
+            ><span class="stage-subject" data-i18n="journey.engineering"
+              >Biomedical Engineering</span
+            ><span class="stage-line" aria-hidden="true"><span></span></span></button
+          ><button
+            class="journey-stage"
+            type="button"
+            role="tab"
+            id="stage-master"
+            data-stage-select="master"
+            aria-selected="false"
+            aria-controls="journey-panel"
+            tabindex="-1"
+            ><span class="stage-date">2024.09 — 2026.06</span
+            ><span class="stage-heading" data-i18n="journey.masterDegree">Master’s phase</span
+            ><span class="stage-subject" data-i18n="journey.basic"
+              >Basic Medicine · 5+2 program</span
+            ><span class="stage-line" aria-hidden="true"><span></span></span></button
+          ><button
+            class="journey-stage"
+            type="button"
+            role="tab"
+            id="stage-bachelor"
+            data-stage-select="bachelor"
+            aria-selected="false"
+            aria-controls="journey-panel"
+            tabindex="-1"
+            ><span class="stage-date">2019.09 — 2024.06</span
+            ><span class="stage-heading" data-i18n="journey.bachelorDegree"
+              >Undergraduate studies</span
+            ><span class="stage-subject" data-i18n="journey.bachelorSubject"
+              >Basic Medicine · Bachelor of Medicine</span
+            ><span class="stage-line" aria-hidden="true"><span></span></span></button
+        ></div>
+        <div
+          id="journey-panel"
+          class="journey-panel"
+          role="tabpanel"
+          aria-labelledby="stage-phd"
+          tabindex="0"
+          ><h3 id="journey-panel-title"></h3><p id="journey-panel-text"></p
+        ></div>
+        <details class="early-experience"
+          ><summary
+            ><span data-i18n="journey.early">Earlier campus &amp; volunteer experience</span
+            ><span class="details-icon" aria-hidden="true">+</span></summary
+          ><div class="early-grid"
+            ><div
+              ><h4 data-i18n="journey.studentTitle">Undergraduate · Student leadership</h4
+              ><p data-i18n="journey.studentText"
+                >2019–2022: technical production and event organization in the university student
+                union, serving as a department member, deputy head and vice president.</p
+              ></div
+            ><div
+              ><h4 data-i18n="journey.volunteerTitle">Early years · Volunteering</h4
+              ><p data-i18n="journey.volunteerText"
+                >Volunteer work during undergraduate and early postgraduate years included campus
+                congresses, the Challenge Cup, cultural outreach and COVID-19 prevention.</p
+              ></div
+            ></div
+          ></details
+        >
+      </section>
+      <section id="publications" class="publications section">
+        <div class="content-width"
+          ><div class="section-heading"
+            ><div
+              ><p class="section-eyebrow" data-i18n="papers.label">Publications</p
+              ><h2 class="section-title" data-i18n="papers.title"
+                >Research,<br />in its own words.</h2
+              ></div
+            ><div class="paper-total"
+              ><span>12</span><span data-i18n="papers.totalLabel">PUBLICATIONS</span></div
+            ></div
+          >
+          <div class="publication-discovery"
+            ><div
+              class="topic-filters"
+              role="group"
+              aria-label="Explore by research topic"
+              data-i18n-aria="papers.topics"
+              ><button
+                type="button"
+                data-topic="all"
+                aria-pressed="true"
+                data-i18n="papers.topicAll"
+                >All topics</button
+              ><button
+                type="button"
+                data-topic="microbiome"
+                aria-pressed="false"
+                data-i18n="papers.topicMicro"
+                >Microbes</button
+              ><button
+                type="button"
+                data-topic="immune"
+                aria-pressed="false"
+                data-i18n="papers.topicImmune"
+                >Immunity</button
+              ><button
+                type="button"
+                data-topic="neuro"
+                aria-pressed="false"
+                data-i18n="papers.topicNeuro"
+                >Neuroscience</button
+              ><button
+                type="button"
+                data-topic="platform"
+                aria-pressed="false"
+                data-i18n="papers.topicPlatform"
+                >Platforms</button
+              ></div
+            ><button type="button" id="random-paper" class="inline-action" data-i18n="papers.random"
+              >Pick a paper ↗</button
+            ></div
+          >
+          <div class="publication-tools"
+            ><div
+              class="year-filters"
+              role="group"
+              aria-label="Filter publications by year"
+              data-i18n-aria="papers.years"
+              ><button type="button" data-year="all" aria-pressed="true" data-i18n="papers.all"
+                >All</button
+              ><button type="button" data-year="2026" aria-pressed="false">2026</button
+              ><button type="button" data-year="2025" aria-pressed="false">2025</button
+              ><button type="button" data-year="2024" aria-pressed="false">2024</button></div
+            ><label class="paper-search"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="paper-search"
+                type="search"
+                placeholder="Search papers or research topics"
+                aria-label="Search publications"
+                data-i18n-placeholder="papers.search"
+                data-i18n-aria="papers.searchAria" /></label
+          ></div>
+          <div class="publication-subtools"
+            ><label class="cofirst-control"
+              ><input type="checkbox" id="cofirst-only" /><span data-i18n="papers.onlyCofirst"
+                >Co-first author</span
+              ></label
+            ><div class="count-and-reset"
+              ><button type="button" id="clear-paper-filters" hidden="" data-i18n="papers.reset"
+                >Clear filters</button
+              ><span id="publication-count" aria-live="polite"></span></div
+          ></div>
+          <div id="publication-list"></div
+          ><button type="button" id="more-publications" class="button button-outline"
+            >展开全部论文 ↓</button
+          ><noscript
+            ><a href="assets/resume.html">阅读学术简历 / Read academic profile</a></noscript
+          ></div
+        >
+      </section>
+      <section
+        id="art-gallery"
+        class="art-gallery section content-width"
+        aria-labelledby="art-gallery-title"
+        data-art-gallery="nature"
+      >
+        <div class="section-heading"
+          ><div
+            ><p class="section-eyebrow" data-gallery-label="">研究的另一种表达</p
+            ><h2 class="section-title" id="art-gallery-title" data-gallery-title=""
+              >让好奇，<br />有自己的形状。</h2
+            ></div
+          ><p class="section-intro" data-gallery-intro="">七幅画，七条线索，回到研究本身。</p></div
+        >
+        <div class="art-gallery-tabs" role="tablist" aria-label="选择画作"
+          ><button
+            type="button"
+            id="art-tab-nature"
+            data-art-gallery-select="nature"
+            role="tab"
+            aria-selected="true"
+            aria-controls="art-panel-nature"
+            ><img
+              src="assets/curiosity-art.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>生命与求知</span></button
+          ><button
+            type="button"
+            id="art-tab-cell"
+            data-art-gallery-select="cell"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-cell"
+            tabindex="-1"
+            ><img
+              src="assets/cover-cell.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>菌群与代谢</span></button
+          ><button
+            type="button"
+            id="art-tab-science"
+            data-art-gallery-select="science"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-science"
+            tabindex="-1"
+            ><img
+              src="assets/cover-science.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>数据与智能</span></button
+          ><button
+            type="button"
+            id="art-tab-nejm"
+            data-art-gallery-select="nejm"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-nejm"
+            tabindex="-1"
+            ><img
+              src="assets/cover-nejm.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>神经与遗传</span></button
+          ><button
+            type="button"
+            id="art-tab-bmj"
+            data-art-gallery-select="bmj"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-bmj"
+            tabindex="-1"
+            ><img
+              src="assets/cover-bmj.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>因果与证据</span></button
+          ><button
+            type="button"
+            id="art-tab-lancet"
+            data-art-gallery-select="lancet"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-lancet"
+            tabindex="-1"
+            ><img
+              src="assets/cover-lancet.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>炎症与共因</span></button
+          ><button
+            type="button"
+            id="art-tab-jama"
+            data-art-gallery-select="jama"
+            role="tab"
+            aria-selected="false"
+            aria-controls="art-panel-jama"
+            tabindex="-1"
+            ><img
+              src="assets/cover-jama.webp?v=1"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+              alt=""
+            /><span>代谢与交汇</span></button
+          ></div
+        >
+        <div class="art-gallery-panels">
+          <div
+            class="art-story"
+            id="art-panel-nature"
+            role="tabpanel"
+            aria-labelledby="art-tab-nature"
+            data-art-gallery-panel="nature"
+            data-art-work="nature"
+            data-art-scope="gallery"
+            ><figure class="art-map"
+              ><img
+                src="assets/curiosity-art.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="生命与求知主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p><h3 class="art-heading">把好奇，画成风景。</h3
+              ><p class="art-intro">从遗传与因果，到微生物与智能；用不同的线索，追问同一份好奇。</p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"
+                ><h4>微观与远方，在此相遇。</h4
+                ><p
+                  >丝带穿过书页，光点连接微观的形态。遗传、药物与智能的线索，在想象中汇成一幅求知的风景。</p
+                ></div
+              ></div
+            ></div
+          >
+          <div
+            class="art-story"
+            id="art-panel-cell"
+            role="tabpanel"
+            aria-labelledby="art-tab-cell"
+            data-art-gallery-panel="cell"
+            data-art-work="cell"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-cell.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="菌群与代谢主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p
+              ><h3 class="art-heading">微小的生命，辽阔的联系。</h3><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+          <div
+            class="art-story"
+            id="art-panel-science"
+            role="tabpanel"
+            aria-labelledby="art-tab-science"
+            data-art-gallery-panel="science"
+            data-art-work="science"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-science.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="数据与智能主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p><h3 class="art-heading">由序成章，向知而行。</h3
+              ><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+          <div
+            class="art-story"
+            id="art-panel-nejm"
+            role="tabpanel"
+            aria-labelledby="art-tab-nejm"
+            data-art-gallery-panel="nejm"
+            data-art-work="nejm"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-nejm.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="神经与遗传主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p><h3 class="art-heading">循着遗传，追问生命。</h3
+              ><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+          <div
+            class="art-story"
+            id="art-panel-bmj"
+            role="tabpanel"
+            aria-labelledby="art-tab-bmj"
+            data-art-gallery-panel="bmj"
+            data-art-work="bmj"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-bmj.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="因果与证据主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p><h3 class="art-heading">循证而问，溯因而行。</h3
+              ><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+          <div
+            class="art-story"
+            id="art-panel-lancet"
+            role="tabpanel"
+            aria-labelledby="art-tab-lancet"
+            data-art-gallery-panel="lancet"
+            data-art-work="lancet"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-lancet.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="炎症与共因主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p
+              ><h3 class="art-heading">在交汇处，寻找共同的线索。</h3><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+          <div
+            class="art-story"
+            id="art-panel-jama"
+            role="tabpanel"
+            aria-labelledby="art-tab-jama"
+            data-art-gallery-panel="jama"
+            data-art-work="jama"
+            data-art-scope="gallery"
+            hidden=""
+            ><figure class="art-map"
+              ><img
+                src="assets/cover-jama.webp?v=1"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+                alt="代谢与交汇主题的原创艺术插画" /></figure
+            ><div class="art-copy"
+              ><p class="art-eyebrow">画中有意</p
+              ><h3 class="art-heading">让分散的证据，相互照见。</h3><p class="art-intro"></p
+              ><div class="art-key-options" role="group" aria-label="画作细节"></div
+              ><div class="art-meaning" aria-live="off"><h4></h4><p></p></div></div
+          ></div>
+        </div>
+      </section>
+      <section class="closing content-width"
+        ><div class="cloud-rule" aria-hidden="true"></div
+        ><div class="closing-inner"
+          ><div
+            ><p class="section-eyebrow">BIOMEDICINE × AI</p
+            ><h2 data-i18n="closing.title">More to understand.<br />More to explore.</h2></div
+          ><a class="button button-solid cv-link" href="assets/resume.html?lang=en"
+            ><span data-i18n="closing.cv">Read my academic profile</span
+            ><span aria-hidden="true">↗</span></a
+          ></div
+        ></section
+      >
+    </main>
+    <footer class="footer content-width"
+      ><span class="footer-mark">DATA &amp; DISCOVERY</span
+      ><div
+        ><button id="motion-toggle" type="button" aria-pressed="false"
+          ><span aria-hidden="true">◌</span> <span data-motion-label="">暂停动效</span></button
+        ><a href="#home" data-i18n="footer.top">Back to top ↑</a></div
+      ></footer
+    >
+    <div id="toast" class="toast" role="status" aria-live="polite"></div> </body
+></html>
