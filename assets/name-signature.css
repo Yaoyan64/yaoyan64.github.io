@@ -1,0 +1,9 @@
+/* Great Vibes is reserved for the English display name. Body English remains Times New Roman. */
+@font-face{font-family:"WX Signature";src:url("fonts/GreatVibes-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+html[lang=en] .hero-name{margin:22px 0 20px;line-height:1.15;overflow:visible;container-type:inline-size}
+html[lang=en] .hero-name>span:first-child{font-family:"WX Signature",cursive!important;font-size:clamp(64px,8vw,190px);font-weight:400;font-style:normal;letter-spacing:0;word-spacing:.04em;line-height:1.25;white-space:nowrap;overflow-wrap:normal;font-kerning:normal;font-variant-ligatures:common-ligatures contextual;max-width:100%;padding:0 .1em 0 .02em;flex-shrink:1}
+html[data-theme][lang=en] .hero-name>span:first-child{background-image:linear-gradient(115deg,var(--theme-ink) 12%,var(--theme-primary) 76%);background-clip:text;-webkit-background-clip:text;color:transparent}
+@media(max-width:1180px) and (min-width:851px){html[lang=en] .hero-name>span:first-child{font-size:clamp(72px,8.8vw,100px)}}
+@media(max-width:850px){html[lang=en] .hero-name>span:first-child{font-size:clamp(62px,19vw,154px)}html[lang=en] .hero-name{margin:21px 0 18px}}
+/* Match the name to its own column, including tablet landscape and wide monitors. */
+@supports(font-size:1cqi){html[lang=en] .hero-name>span:first-child{font-size:clamp(58px,23cqi,196px)}@media(max-width:850px){html[lang=en] .hero-name>span:first-child{font-size:clamp(58px,23cqi,154px)}}}

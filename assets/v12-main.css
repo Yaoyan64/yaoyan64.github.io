@@ -1,0 +1,24 @@
+/* A single navigation order, and a quiet, unhurried tour of the paintings. */
+html{scroll-padding-top:calc(var(--header) + 22px)}
+main > section[id]{scroll-margin-top:0}
+.site-header .desktop-nav{gap:clamp(17px,1.55vw,32px)}
+.site-header .desktop-nav a{font-family:"Times New Roman",Times,"Noto Serif SC","Songti SC",serif;font-size:clamp(13px,.79rem + .1vw,18px);font-weight:500}
+.site-header .mobile-nav a[data-section-link]{position:relative;padding:12px 16px;border-radius:5px}
+.site-header .mobile-nav a[aria-current=location]{background:color-mix(in srgb,var(--theme-primary) 7%,transparent);color:var(--theme-primary);font-weight:700}
+.site-header .mobile-nav a[aria-current=location]::before{content:"";position:absolute;left:0;top:50%;height:16px;width:2px;background:var(--theme-primary);transform:translateY(-50%)}
+.art-gallery-panels{display:grid;position:relative;align-items:start}
+.art-gallery .art-story{grid-area:1 / 1;min-width:0;animation:none!important}
+.art-gallery .art-story.is-arriving{animation:gallery-arrive 850ms cubic-bezier(.2,.65,.25,1) both!important}
+.art-gallery .art-story.is-outgoing{animation:gallery-depart 700ms cubic-bezier(.2,.65,.25,1) both!important;pointer-events:none}
+.art-gallery-tabs{overflow-anchor:none;scroll-behavior:smooth}
+.art-gallery-tabs button::before{content:"";position:absolute;left:0;bottom:0;z-index:2;width:100%;height:2px;background:var(--theme-secondary);transform:scaleX(0);transform-origin:left;opacity:0}
+.art-gallery-tabs button[aria-selected=true]::before{opacity:1;transform:scaleX(var(--gallery-progress,0))}
+.art-gallery-tabs button[aria-selected=true]::after{opacity:.3}
+.art-gallery[data-gallery-holding=true] .art-gallery-tabs button[aria-selected=true]::before{opacity:.65}
+@keyframes gallery-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gallery-depart{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-4px)}}
+@media(max-width:1180px){.site-header .desktop-nav,.site-header .header-cv{display:none}.site-header .menu-toggle{display:flex}.mobile-nav{max-height:calc(100dvh - var(--header));overflow-y:auto;padding-bottom:max(24px,env(safe-area-inset-bottom))}}
+@media(min-width:1181px){.site-header .desktop-nav{display:flex}.site-header .menu-toggle{display:none}}
+@media(max-width:650px){.art-gallery .art-copy{min-height:410px}.art-gallery-tabs{scroll-padding-inline:6px}.site-header .mobile-nav{padding-inline:20px}}
+@media(prefers-reduced-motion:reduce){.art-gallery .art-story.is-arriving,.art-gallery .art-story.is-outgoing{animation:none!important}.art-gallery-tabs{scroll-behavior:auto}}
+html[data-motion=paused] .art-gallery .art-story.is-arriving,html[data-motion=paused] .art-gallery .art-story.is-outgoing{animation:none!important}
